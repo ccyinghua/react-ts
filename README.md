@@ -1,7 +1,7 @@
 ## ts-react
 > typescript + react 项目搭建
 
-### 搭建项目命令
+## 搭建项目命令
 ```javascript
 create-react-app ts-react --template typescript
 或
@@ -10,7 +10,7 @@ create-react-app ts-react --scripts-version=react-scripts-ts
 
 react项目详细：[https://github.com/ccyinghua/imooc-react-chat](https://github.com/ccyinghua/imooc-react-chat)
 
-### 1、添加redux
+## 1、添加redux
 ```
 cnpm install redux redux-thunk react-redux @types/react-redux --save
 ```
@@ -239,7 +239,7 @@ export default App;
 ```
 结果：![](./resource/1.gif)
 
-### 2、添加router
+## 2、添加router
 ```javascript
 cnpm install react-router-dom @types/react-router-dom --save
 ```
@@ -275,15 +275,36 @@ import { Switch,Route, Link } from "react-router-dom";
 ```
 结果：![](./resource/2.gif)
 
-### 3、添加antd
+## 3、添加antd
 ```javascript
 cnpm install antd --save
+// 可能会用到：
+cnpm install @types/antd --save
 ```
 src/index.tsx引入样式
 ```javascript
 import 'antd/dist/antd.css';
 ```
 
+## 4、使用sass
+```javascript
+// 暴露配置文件
+npm run eject
+
+cnpm install node-sass --save
+```
+
+## 5、使用less
 ```
 npm run eject
+
+cnpm install less-loader less --save
 ```
+webpack.config.js
+```
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+
+# 复制一份scss配置，并在oneof下新增即可
+```
+使用时若报错`TypeError: this.getOptions is not a function`,因为`less-loader`安装的版本过高,解决方案：卸载原来的`npm uninstall less-loader`,安装指定版本`npm install less-loader@5.0.0 --save`
