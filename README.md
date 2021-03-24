@@ -274,3 +274,16 @@ import { Switch,Route, Link } from "react-router-dom";
 </Switch>
 ```
 结果：![](./resource/2.gif)
+
+### 3、添加antd
+```javascript
+cnpm install antd --save
+```
+src/index.tsx引入样式
+```javascript
+import 'antd/dist/antd.css';
+```
+
+```
+npm run eject
+```

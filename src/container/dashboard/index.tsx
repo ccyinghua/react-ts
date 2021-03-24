@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CountState, increment, decrement } from "../../redux/count/count.redux";
 import { ReducerState } from "../../redux/reducer";
+import { Button } from "antd";
+import "./index.css";
+
 
 interface Props {
 	name?: String;
@@ -15,10 +18,15 @@ class Dashboard extends Component<Props & CountState> {
 		const { name, increment, decrement } = this.props;
 		return (
 			<div>
-				<div>我是首页</div>
-				{/* <p>{this.props.count}</p>
-				<button onClick={increment}>增加</button>
-				<button onClick={decrement}>减少</button> */}
+				<div className="dash-div">
+					<p>我是首页</p>
+				</div>
+
+				<Button type="primary" danger>Primary</Button>
+				<Button danger>Default</Button>
+				<Button type="dashed" danger>Dashed</Button>
+				<Button type="text" danger>Text</Button>
+				<Button type="link" danger>Link</Button>
 			</div>
 		);
 	}
