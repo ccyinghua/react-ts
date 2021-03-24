@@ -135,7 +135,7 @@ export interface ReducerState {
 
 export default combineReducers({ count });
 ```
-src/components/Hello1.tsx
+src/components/Hello.tsx
 ```javascript
 import React, { Component } from "react";
 // import { Dispatch } from "redux";
@@ -173,7 +173,7 @@ const mapStateToProps = (state: ReducerState) => state.count;
 
 export default connect(mapStateToProps, { increment, decrement })(Hello);
 ```
-src/components/Hello2.tsx
+src/components/Hello1.tsx
 ```javascript
 import React from "react";
 import { Dispatch } from "redux";
@@ -240,8 +240,37 @@ export default App;
 结果：![](./resource/1.gif)
 
 ### 2、添加router
+```javascript
+cnpm install react-router-dom @types/react-router-dom --save
 ```
-cnpm install react-router-dom --save
+src/index.tsx
+```javascript
+import { BrowserRouter } from "react-router-dom";
+
+...
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);
+...
 ```
+src/App.tsx
+```javascript
+import { Switch,Route, Link } from "react-router-dom";
 
-
+<ul>
+	<li><Link to="/hello">hello路由</Link></li>
+	<li><Link to="/hello1">hello1路由</Link></li>
+</ul>
+<Switch>
+	<Route path="/hello" component={Hello}></Route>
+	<Route path="/hello1" component={Hello1}></Route>
+</Switch>
+```
+结果：![](./resource/2.gif)
